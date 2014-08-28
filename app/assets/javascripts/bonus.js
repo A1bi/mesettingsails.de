@@ -11,13 +11,15 @@ $(window).load(function () {
   form.css("top", flipperMiddle - code.outerHeight(true) / 2);
   download.css("top", flipperMiddle - download.height() / 2);
   
-  form.find("form").submit(function (event) {
-    if (code.val() == "blubb") {
+  form.find("form").on("ajax:success", function (event, data) {
+    if (data.ok) {
       flipper.addClass("flipped");
+      download.find("a").prop("href", function (i, url) {
+        return url.replace(":download_token:", data.download_token);
+      });
     } else {
       error.addClass("shown");
     }
-    event.preventDefault();
   });
   
   var lastVal;

@@ -36,8 +36,12 @@ body {
     margin-top: 0;
   }
   
-  .cover img {
-    width: 100%;
+  .cover {
+    padding: 2px;
+    
+    img {
+      width: 100%;
+    }
   }
   
   .flipper {
@@ -86,7 +90,7 @@ body {
     }
     
     .download {
-      transform: rotateX(180deg);
+      transform: rotateX(180deg) translateZ(1px);
       font-size: .5em;
       
       ul {
@@ -95,6 +99,13 @@ body {
         list-style: none;
         
         li {
+          padding: 1px;
+          
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+          
           .size {
             font-size: .6em;
             vertical-align: middle;

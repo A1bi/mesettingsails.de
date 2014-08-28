@@ -41,6 +41,9 @@ de:
         unit: "€"
         separator: ","
         delimiter: "."
+    human:
+      format:
+        separator: ","
   i18n:
     transliterate:
       rule:

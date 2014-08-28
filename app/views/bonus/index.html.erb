@@ -7,7 +7,7 @@
   <h2>Birds</h2>
   <div class="flipper">
     <div class="form">
-      <%= form_tag action: :redeem do %>
+      <%= form_tag({ action: :redeem }, { remote: true }) do %>
         <%= text_field_tag :code, nil, placeholder: "Code", autocomplete: :off %>
       <% end %>
       <div class="error">Code nicht korrekt</div>
@@ -15,9 +15,10 @@
     <div class="download">
       Alles klar, dein Download steht bereit.
       <ul>
-        <li>MP3 <span class="size">1,5 MB</span></li>
-        <li>AAC <span class="size">1,8 MB</span></li>
-        <li>WAV <span class="size">5 MB</span></li>
+        <% format_titles = { 2 => "Apple Lossless" } %>
+        <% @formats.each_with_index do |format, i| %>
+          <li><%= link_to bonus_download_path(":download_token:", i), title: format_titles[i] || format[0] do %><%= format[0] %> <span class="size"><%= number_to_human_size(File.size(song_path(i)), precision: 2) %></span><% end %></li>
+        <% end %>
       </ul>
     </div>
   </div>
