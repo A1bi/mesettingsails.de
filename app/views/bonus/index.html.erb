@@ -1,6 +1,24 @@
-<% title "Bonus-Download" %>
+<% title "Bonus Download" %>
 <div class="bonus">
-  <h1>Me, Setting Sails</h1>
-  <h2>Down Set Go</h2>
-  Lorem ipsum
+  <div class="cover">
+    <%= image_tag "cover.jpg", alt: "Down Set Go" %>
+  </div>
+  <h1><span>Bonus Download</span></h1>
+  <h2>Birds</h2>
+  <div class="flipper">
+    <div class="form">
+      <%= form_tag action: :redeem do %>
+        <%= text_field_tag :code, nil, placeholder: "Code", autocomplete: :off %>
+      <% end %>
+      <div class="error">Code nicht korrekt</div>
+    </div>
+    <div class="download">
+      Alles klar, dein Download steht bereit.
+      <ul>
+        <li>MP3 <span class="size">1,5 MB</span></li>
+        <li>AAC <span class="size">1,8 MB</span></li>
+        <li>WAV <span class="size">5 MB</span></li>
+      </ul>
+    </div>
+  </div>
 </div>

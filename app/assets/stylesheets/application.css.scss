@@ -5,21 +5,25 @@
 
 @import "mixins";
 
+$main-color: #798BAA;
+
 body {
   background: white;
-  color: #798BAA;
+  color: $main-color;
   font-family: "Gotham-Book", "Arial Black", "Arial";
   margin: 30px auto;
-  width: 600px;
+  font-size: 20pt;
 }
 
 .bonus {
   text-align: center;
+  width: 350px;
+  margin: auto;
   
   h1, h2 {
     text-transform: uppercase;
     padding: 0px;
-    font-size: 20pt;
+    font-size: 1em;
     line-height: 24pt;
   }
   
@@ -30,6 +34,75 @@ body {
   
   h2 {
     margin-top: 0;
+  }
+  
+  .cover img {
+    width: 100%;
+  }
+  
+  .flipper {
+    position: relative;
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    
+    &.flipped {
+      transform: rotateX(180deg);
+      
+      .form {
+        opacity: 0;
+      }
+    }
+    
+    > div {
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .form {
+      opacity: 1;
+      transition: opacity .5s;
+      
+      #code {
+        font-family: inherit;
+        font-size: .6em;
+        color: inherit;
+        border: 1px solid $main-color;
+        padding: 3px;
+        text-align: inherit;
+      }
+      
+      .error {
+        margin-top: 5%;
+        font-size: .5em;
+        transition: opacity .5s;
+        opacity: 0;
+        
+        &.shown {
+          opacity: 1;
+        }
+      }
+    }
+    
+    .download {
+      transform: rotateX(180deg);
+      font-size: .5em;
+      
+      ul {
+        margin: 10px 0;
+        padding: 0;
+        list-style: none;
+        
+        li {
+          .size {
+            font-size: .6em;
+            vertical-align: middle;
+            padding-left: 3%;
+          }
+        }
+      }
+    }
   }
 }
 
