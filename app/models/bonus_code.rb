@@ -12,6 +12,7 @@ class BonusCode < ActiveRecord::Base
     
     set_random_unique_token(:download_token)
     self.download_token_expiration = Time.now + 15.minutes
+    self.downloads = self.downloads + 1
     save
   end
 end

@@ -13,6 +13,7 @@ $(window).load(function () {
   
   form.find("form").on("ajax:success", function (event, data) {
     if (data.ok) {
+      code.blur();
       flipper.addClass("flipped");
       download.find("a").prop("href", function (i, url) {
         return url.replace(":download_token:", data.download_token);

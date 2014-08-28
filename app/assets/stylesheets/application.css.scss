@@ -47,11 +47,14 @@ body {
   .flipper {
     position: relative;
     height: 100px;
-    transform-style: preserve-3d;
+    @include vendor-specific(transform-style, preserve-3d);
+  	@each $vendor in moz, webkit, o, ms {
+  		-#{$vendor}-transition: -#{$vendor}-transform 1s;
+  	}
     transition: transform 1s;
     
     &.flipped {
-      transform: rotateX(180deg);
+      @include vendor-specific(transform, rotateX(180deg));
       
       .form {
         opacity: 0;
@@ -61,12 +64,12 @@ body {
     > div {
       position: absolute;
       width: 100%;
-      backface-visibility: hidden;
+      @include vendor-specific(backface-visibility, hidden);
     }
     
     .form {
       opacity: 1;
-      transition: opacity .5s;
+      @include vendor-specific(transition, opacity .5s);
       
       #code {
         font-family: inherit;
@@ -80,8 +83,8 @@ body {
       .error {
         margin-top: 5%;
         font-size: .5em;
-        transition: opacity .5s;
         opacity: 0;
+        @include vendor-specific(transition, opacity .5s);
         
         &.shown {
           opacity: 1;
@@ -90,8 +93,8 @@ body {
     }
     
     .download {
-      transform: rotateX(180deg) translateZ(1px);
       font-size: .5em;
+      @include vendor-specific(transform, rotateX(180deg) translateZ(1px));
       
       ul {
         margin: 10px 0;
