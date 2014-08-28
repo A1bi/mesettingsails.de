@@ -1,0 +1,37 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "mixins";
+
+body {
+  background: white;
+  color: #798BAA;
+  font-family: "Gotham-Book", "Arial Black", "Arial";
+  margin: 30px auto;
+  width: 600px;
+}
+
+.bonus {
+  text-align: center;
+  
+  h1, h2 {
+    text-transform: uppercase;
+    padding: 0px;
+    font-size: 20pt;
+    line-height: 24pt;
+  }
+  
+  h1 {
+    font-family: "Gotham-Regular", "Arial Black", "Arial";
+    margin-bottom: 0;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+}
+
+@include font-face("Gotham-Regular");
+@include font-face("Gotham-Book");

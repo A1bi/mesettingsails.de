@@ -1,0 +1,53 @@
+de:
+  date:
+    month_names:
+      - 
+      - Januar
+      - Februar
+      - März
+      - April
+      - Mai
+      - Juni
+      - Juli
+      - August
+      - September
+      - Oktober
+      - November
+      - Dezember
+    day_names:
+      - Sonntag
+      - Montag
+      - Dienstag
+      - Mittwoch
+      - Donnerstag
+      - Freitag
+      - Samstag
+    abbr_day_names:
+      - So
+      - Mo
+      - Di
+      - Mi
+      - Do
+      - Fr
+      - Sa
+    order:
+      - :day
+      - :month
+      - :year
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: ","
+        delimiter: "."
+  i18n:
+    transliterate:
+      rule:
+        ä: "ae"
+        ü: "ue"
+        ö: "oe"
+        Ä: "Ae"
+        Ü: "Ue"
+        Ö: "Oe"
+        ß: "ss"

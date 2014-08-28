@@ -1,0 +1,6 @@
+@mixin font-face($name) {
+	@font-face {
+		font-family: "#{$name}";
+		src: url(asset_path("#{$name}.woff")) format('woff');
+	}
+}
