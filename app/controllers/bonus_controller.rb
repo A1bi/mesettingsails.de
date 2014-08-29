@@ -11,7 +11,10 @@ class BonusController < ApplicationController
   end
   
   def download
-    if BonusCode.download_token_valid?(params[:download_token])
+    code = BonusCode.by_valid_download_token(params[:download_token])
+    if code
+      code.downloads = code.downloads + 1
+      code.save
       send_file song_path(params[:format].to_i), disposition: :attachment
     else
       redirect_to bonus_path

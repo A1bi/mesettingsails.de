@@ -3,8 +3,8 @@ class BonusCode < ActiveRecord::Base
   
   has_random_unique_token :code, 6
   
-  def self.download_token_valid?(token)
-    self.where(download_token: token, voided: false).where("download_token_expiration > ?", Time.now).any?
+  def self.by_valid_download_token(token)
+    self.where(download_token: token, voided: false).where("download_token_expiration > ?", Time.now).first
   end
   
   def redeem
@@ -12,7 +12,6 @@ class BonusCode < ActiveRecord::Base
     
     set_random_unique_token(:download_token)
     self.download_token_expiration = Time.now + 15.minutes
-    self.downloads = self.downloads + 1
     save
   end
 end
