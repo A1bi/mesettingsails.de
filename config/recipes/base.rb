@@ -19,4 +19,11 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/media #{current_release}/media"
   end
   after "deploy:finalize_update", "deploy:symlink_media"
+  
+  desc "Symlink secrets.yml"
+  task :symlink_secrets, roles: :app do
+    run "touch #{shared_path}/config/secrets.yml"
+    run "ln -nfs #{shared_path}/config/secrets.yml #{current_release}/config/secrets.yml"
+  end
+  after "deploy:finalize_update", "deploy:symlink_secrets"
 end

@@ -14,10 +14,9 @@
 /log/*.log
 /tmp
 
+/config/secrets.yml
+
 /public/system
 /public/uploads
-
-/config/database.yml
-/config/application.yml
 
 /media

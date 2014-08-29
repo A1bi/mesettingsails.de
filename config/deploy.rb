@@ -4,7 +4,6 @@ require "rvm/capistrano"
 load "config/recipes/base"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
-load "config/recipes/mysql"
 load "config/recipes/memcached"
 
 server "213.239.219.83", :web, :app, :db, :resque_worker, :resque_scheduler, primary: true
