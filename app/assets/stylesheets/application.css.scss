@@ -58,6 +58,14 @@ body {
       
       .form {
         opacity: 0;
+        
+        .mod-no-csstransforms3d & {
+          display: none;
+        }
+      }
+      
+      .mod-no-csstransforms3d & .download {
+        display: block;
       }
     }
     
@@ -86,8 +94,16 @@ body {
         opacity: 0;
         @include vendor-specific(transition, opacity .5s);
         
+        .mod-no-opacity & {
+          display: none;
+        }
+        
         &.shown {
           opacity: 1;
+          
+          .mod-no-opacity & {
+            display: block;
+          }
         }
       }
     }
@@ -95,6 +111,10 @@ body {
     .download {
       font-size: .5em;
       @include vendor-specific(transform, rotateX(180deg) translateZ(1px));
+      
+      .mod-no-csstransforms3d & {
+        display: none;
+      }
       
       ul {
         margin: 10px 0;
